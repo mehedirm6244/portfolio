@@ -2,14 +2,17 @@
   import { onMount } from 'svelte';
 
   let magicCursor;
-  let hideCursor = true;
+  let hideCursor = false;
 
   function updatePosition(event) {
-    console.log(event.target.classList.contains('cursor-pointer'));
     magicCursor.animate({
       left: `${event.clientX}px`,
       top: `${event.clientY}px`
-    }, { duration: 750, fill: "forwards" })
+    },
+    {
+      duration: 750,
+      fill: "forwards"
+    })
   }
 
   function simulateClick() {
@@ -22,7 +25,7 @@
 
   onMount(() => {
     if ("ontouchstart" in document.documentElement) {
-      console.log('Touch screen detected');
+      console.log('Touch input detected. Disabling magic cursor');
     } else {
       document.addEventListener("mousemove", (e) => { updatePosition(e) });
       document.addEventListener("click", () => { simulateClick() });

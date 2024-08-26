@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<footer class="sm:mt-8 sm:p-8 bg-bg-500">
+<footer class="sm:mt-8 p-4 sm:p-8 bg-bg-500">
 
   <div class="flex justify-around p-8 md:p-16">
     <div>

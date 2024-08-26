@@ -7,7 +7,7 @@
 
   const skills = ['Arch Linux', 'C', 'C++', 'Bash', 'HTML5', 'CSS3', 'TailwindCSS', 'SCSS', 'Javascript', 'Svelte'];
   const githubRepos = ['sysfex', 'Miserable_Xfce', 'jash', 'mehedirm6244.github.io'];
-  const twContent = ['student at morning', 'learner at noon', 'coder at midnight']; // Typewriter content
+  const twContent = ['a student', 'an enthusiast', 'a programmer']; // Typewriter content
 
   let typewriter;
   let twContentIdx = 0, twContentLen = 0;
@@ -27,7 +27,7 @@
       setTimeout(typeWriterWrite, 100);
     } else {
       twContentIdx = (twContentIdx + 1) % twContent.length;
-      setTimeout(typeWriterErase, 2000);
+      setTimeout(typeWriterErase, 3000);
     }
   }
 
@@ -44,14 +44,14 @@
 <main>
 
   <!-- Header -->
-  <header class="h-screen flex align-middle justify-center items-center bg-bg-400" use:reveal={{ transition: "fly", y:20 }}>
-    <div>
-      <p class="text-3xl md:text-4xl font-semibold">Mehedi Rahman Mahi</p>
+  <header class="h-screen -mt-20 flex align-middle justify-center items-center bg-bg-400">
+    <div use:reveal={{ transition: "slide", x:-50 }}>
+      <p class="text-3xl md:text-4xl font-medium">Mehedi Rahman Mahi</p>
       <p class="text-xl md:text-2xl">
-        I'm a <span bind:this={typewriter} class="text-green"></span>
+        I'm <span bind:this={typewriter} class="text-green"></span>
         <span class="animate-blink">_</span>
       </p>
-      <div class="mt-4 space-x-2">
+      <div class="mt-4 space-x-2" use:reveal={{ transition: "slide", x:-10, delay: 100 }}>
         <PillButton href="#project"><i class="fa-solid fa-box mr-2"></i>Projects</PillButton>
         <PillButton href="/blogs"><i class="fa-solid fa-pen mr-2"></i>Blogs</PillButton>
       </div>
@@ -90,7 +90,7 @@
       <p class="mb-6">Including operating systems, languages and frameworks</p>
       <div class="flex flex-row flex-wrap gap-2">
         {#each skills as skill, idx}
-          <div class="bg-blue/5 text-blue px-3 py-1.5 rounded-lg font-semibold text-sm duration-100 hover:bg-blue/10" use:reveal={{ transition: "fly", y:20, delay: 75*idx }}>
+          <div class="bg-blue/5 text-blue px-3 py-1.5 rounded-lg font-semibold text-sm duration-100 hover:bg-blue/10" use:reveal={{ transition: "spin fly", rotate: -5, y:-20, delay: 75*idx }}>
             {skill}
           </div>
         {/each}
@@ -106,10 +106,10 @@
     </p>
     <div class="mx-auto w-10/12 md:w-2/3 mt-8">
       <form action=”mailto:mehedirm6244@protonmail.com” autocomplete="off" bind:this={contactForm} on:submit|preventDefault={sendMail}>
-        <p class="text-xl font-semibold">Title</p>
+        <p class="text-xl font-medium">Title</p>
         <input placeholder="Title" class="block w-full bg-bg-500 px-6 py-4 rounded-xl my-4">
 
-        <p class="text-xl font-semibold mb-2">Content</p>
+        <p class="text-xl font-medium mb-2">Content</p>
         <textarea placeholder="Content" class="block w-full resize-none bg-bg-500 px-6 py-4 rounded-xl my-4"></textarea>
 
         <div class="flex justify-center mt-8">

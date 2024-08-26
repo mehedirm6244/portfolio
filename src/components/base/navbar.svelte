@@ -30,7 +30,7 @@
   });
 </script>
 
-<nav class="fixed top-0 left-0 right-0 z-40 flex align-middle items-center justify-between bg-bg-400 duration-300 {scrolledState ? 'p-3 shadow-lg' : 'py-4 px-6'}">
+<nav class="sticky h-20 px-6 top-0 left-0 right-0 z-40 flex align-middle items-center justify-between bg-bg-400 duration-300" class:shadow-lg={scrolledState}>
 
   <!-- Left section -->
   <div class="flex items-center align-middle justify-between space-x-2">
@@ -51,7 +51,7 @@
 
     <div class="absolute top-16 right-6 p-2 w-52 bg-bg-100 rounded-lg md:static md:flex md:align-middle md:justify-center md:items-center md:top-0 md:right-0 md:p-0 md:w-auto md:block md:space-x-3 md:bg-transparent" class:hidden={!navMenuToggled}>
       {#each navbarLinks as navbarLink, idx}
-        <a href={navbarLink.link} class="block px-4 py-1 font-medium md:inline-block md:p-0 hover:underline" use:reveal={{ transition: "fly", y:-20, delay: 100*idx }}>
+        <a href={navbarLink.link} class="block px-4 py-1 font-medium md:inline-block md:p-0 hover:underline" use:reveal={{ transition: "fly", y:-20, delay: 150*idx }}>
           {navbarLink.caption}
         </a>
       {/each}
