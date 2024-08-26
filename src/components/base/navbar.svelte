@@ -2,6 +2,8 @@
   import { onMount } from 'svelte';
   import { reveal } from 'svelte-reveal';
 
+  import pfp from '../../assets/pfp.png';
+
   let scrolledState = false;
   let navMenuToggled = false;
 
@@ -11,7 +13,7 @@
       caption: 'Home'
     },
     {
-      link: '#project',
+      link: '/#project',
       caption: 'Projects'
     },
     {
@@ -34,7 +36,7 @@
   <div class="flex items-center align-middle justify-between space-x-2">
     <a href="/" class="duration-100 rounded-md hover:bg-white/5">
       <div class="flex align-middle items-center space-x-2 px-3 py-2">
-        <img class="h-[32px] rounded-full" src="./src/assets/pfp.png" alt="Pfp">
+        <img class="h-[32px] rounded-full" src={pfp} alt="Pfp">
         <div class="text-md font-semibold">mehedirm6244</div>
       </div>
     </a>

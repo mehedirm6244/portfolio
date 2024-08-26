@@ -1,0 +1,36 @@
+<script>
+  import { onMount } from 'svelte';
+
+  let magicCursor;
+  let hideCursor = true;
+
+  function updatePosition(event) {
+    console.log(event.target.classList.contains('cursor-pointer'));
+    magicCursor.animate({
+      left: `${event.clientX}px`,
+      top: `${event.clientY}px`
+    }, { duration: 750, fill: "forwards" })
+  }
+
+  function simulateClick() {
+    magicCursor.animate([
+      { scale: 1 },
+      { scale: .5 }, 
+      { scale: 1 },
+    ], { duration: 100, fill: "forwards" })
+  }
+
+  onMount(() => {
+    if ("ontouchstart" in document.documentElement) {
+      console.log('Touch screen detected');
+    } else {
+      document.addEventListener("mousemove", (e) => { updatePosition(e) });
+      document.addEventListener("click", () => { simulateClick() });
+      document.body.addEventListener("mouseenter", () => { hideCursor = false; });
+      document.body.addEventListener("mouseleave", () => { hideCursor = true; });
+    }
+  });
+
+</script>
+
+<div class="fixed -top-6 -left-6 -mx-3 -my-3 h-6 w-6 rounded-full bg-lightGray/30 z-[999] pointer-events-none duration-500" class:opacity-0={hideCursor} bind:this={magicCursor}></div>

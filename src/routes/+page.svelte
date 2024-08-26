@@ -5,7 +5,7 @@
   import RepoCard from '../components/github_repo.svelte';
   import PillButton from '../components/base/pill_button.svelte'
 
-  const skills = ['Arch Linux', 'C', 'C++', 'Bash', 'HTML5', 'CSS3', 'TailwindCSS', 'SCSS', 'Javascript'];
+  const skills = ['Arch Linux', 'C', 'C++', 'Bash', 'HTML5', 'CSS3', 'TailwindCSS', 'SCSS', 'Javascript', 'Svelte'];
   const githubRepos = ['sysfex', 'Miserable_Xfce', 'jash', 'mehedirm6244.github.io'];
   const twContent = ['student at morning', 'learner at noon', 'coder at midnight']; // Typewriter content
 
@@ -18,11 +18,7 @@
     let subject = contactForm.title;
     let body = contactForm.content;
 
-    if(subject == '' || body == '') {
-      
-    } else {
-      location.href = `mailto:mehedirm6244@protonmail.com?subject=${subject}&body=${body}`;
-    }
+    location.href = `mailto:mehedirm6244@protonmail.com?subject=${subject}&body=${body}`;
   }
 
   function typeWriterWrite() {
@@ -80,7 +76,7 @@
   <section class="px-[5%] py-12 md:px-[10%] md:py-20 bg-bg-500" id="project">
     <h1 class="text-2xl text-center font-semibold">My projects</h1>
     <p class="text-center">About which I tell <i>her mother</i>.</p>
-    <div class="mt-8 flex flex-wrap align-middle items-center justify-center gap-5">
+    <div class="mt-8 space-y-3 sm:space-y-0 sm:flex flex-wrap align-middle items-center justify-center gap-5">
       {#each githubRepos as githubRepo, idx}
         <RepoCard repo="mehedirm6244/{githubRepo}" useReveal={{ transition: "fly", y:20, delay: 75*idx }} />
       {/each}
@@ -103,7 +99,7 @@
   </section>
 
   <!-- E-mail form -->
-  <section class="px-[5%] py-20 md:px-[10%]" use:reveal={{ transition: "fly", y:20 }}>
+  <section class="px-[5%] py-12 md:px-[10%] md:py-20" use:reveal={{ transition: "fly", y:20 }}>
     <h1 class="text-2xl text-center font-semibold">Want to contact me?</h1>
     <p class="text-center">
       Use this form below or mail to <a href="mailto:mehedirm6244@protonmail.com" class="text-blue hover:underline">mehedirm6244@protonmail.com</a>
