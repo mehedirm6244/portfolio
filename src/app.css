@@ -82,12 +82,12 @@
     @apply hidden h-0 w-0;
   }
 
-  a:hover, button:hover {
-    @apply cursor-pointer;
-  }
-
   input:hover, textarea:hover {
     @apply cursor-text;
+  }
+
+  a:hover, button:hover {
+    @apply cursor-pointer;
   }
 
   img {

@@ -29,6 +29,7 @@
     } else {
       document.addEventListener("mousemove", (e) => { updatePosition(e) });
       document.addEventListener("click", () => { simulateClick() });
+      document.addEventListener("contextmenu", () => { simulateClick() });
       document.body.addEventListener("mouseenter", () => { hideCursor = false; });
       document.body.addEventListener("mouseleave", () => { hideCursor = true; });
     }

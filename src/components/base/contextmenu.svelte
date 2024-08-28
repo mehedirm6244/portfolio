@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
 
   let contextMenu;
+  let clickTarget;
   let showContextMenu = false;
   let onTextInput = false;
   let onLink = false;
@@ -54,6 +55,7 @@
 
   function isWithinAnchor(element) {
     if (element.tagName.toLowerCase() === 'a') {
+      clickTarget = element;
       return true;
     } else if (element.parentElement) {
       return isWithinAnchor(element.parentElement);
@@ -65,10 +67,10 @@
   onMount(() => {
     document.addEventListener("contextmenu", (e) => {
       e.preventDefault();
-      let clickTarget = e.target;
+      clickTarget = e.target;
       let targetTag = clickTarget.tagName.toLowerCase();
 
-      onTextInput = (targetTag == 'input' || targetTag == 'textarea');
+      onTextInput = (targetTag === 'input' || targetTag === 'textarea');
       onLink = isWithinAnchor(clickTarget);
 
       positionContextMenu(e);

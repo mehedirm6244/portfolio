@@ -4,6 +4,7 @@
 <footer class="sm:mt-8 p-4 sm:p-8 bg-bg-500">
 
   <div class="flex justify-around p-8 md:p-16">
+
     <div>
       <p class="text-lg font-semibold">Socials</p>
       <ul class="m-1">
@@ -12,6 +13,7 @@
         <li><a href="https://t.me/mehedirm6244" class="text-blue hover:underline">Telegram</a></li>
       </ul>
     </div>
+
     <div>
       <p class="text-lg font-semibold">Misc</p>
       <ul class="m-1">
@@ -19,6 +21,7 @@
         <li><a href="https://www.youtube.com/channel/UC7L4k12jFmxllbtfQaPR7nQ" class="text-blue hover:underline">YouTube</a></li>
       </ul>
     </div>
+    
   </div>
 
   <div class="p-4 text-center">
