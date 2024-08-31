@@ -8,11 +8,7 @@
     magicCursor.animate({
       left: `${event.clientX}px`,
       top: `${event.clientY}px`
-    },
-    {
-      duration: 750,
-      fill: "forwards"
-    })
+    }, { duration: 750, fill: "forwards" });
   }
 
   function simulateClick() {
@@ -20,7 +16,7 @@
       { scale: 1 },
       { scale: .5 }, 
       { scale: 1 },
-    ], { duration: 100, fill: "forwards" })
+    ], { duration: 100, fill: "forwards" });
   }
 
   onMount(() => {
@@ -37,4 +33,4 @@
 
 </script>
 
-<div class="fixed -top-6 -left-6 -mx-3 -my-3 h-6 w-6 rounded-full bg-lightGray/30 z-[999] pointer-events-none duration-500" class:opacity-0={hideCursor} bind:this={magicCursor}></div>
+<div class="fixed -top-6 -left-6 -mx-3 -my-3 h-6 w-6 rounded-full bg-gray/30 z-[9999] pointer-events-none duration-500" class:opacity-0={hideCursor} bind:this={magicCursor}></div>

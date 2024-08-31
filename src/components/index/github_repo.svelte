@@ -2,6 +2,10 @@
   import { onMount } from 'svelte';
   import { reveal } from 'svelte-reveal';
 
+  import { Star } from "lucide-svelte";
+  import { Code } from "lucide-svelte";
+  import { GitFork } from "lucide-svelte";
+
   export let repo;
   export let useReveal;
   let repoDesc = '';
@@ -19,13 +23,19 @@
 </script>
 
 <div class="bg-bg-400 p-6 md:p-8 rounded-lg shadow-sm sm:w-80 duration-100 hover:shadow-lg" use:reveal={useReveal}>
-  <h3 class="text-lg font-semibold truncate hover:underline">
+  <h3 class="text-lg font-medium truncate hover:underline">
     <a href="https://github.com/{repo}" target="_blank">{repo}</a>
   </h3>
-  <p class="text-md h-12 md:h-14 overflow-auto">{repoDesc}</p>
+  <p class="text-md h-12 md:h-14 overflow-auto text-gray">{repoDesc}</p>
   <div class="mt-2 space-x-4 text-sm text-white">
-    <button class="hover:cursor-default"><i class="fa-solid fa-code mr-1 text-blue"></i> {repoLang}</button>
-    <button class="hover:cursor-default"><i class="fa-solid fa-star mr-1 text-yellow"></i> {repoStars}</button>
-    <button class="hover:cursor-default"><i class="fa-solid fa-code-fork mr-1 text-magenta"></i> {repoForks}</button>
+    <button class="hover:cursor-default">
+      <Code size={16} strokeWidth={2.5} class="inline-block mr-1 -mt-0.5 text-blue" />{repoLang}
+    </button>
+    <button class="hover:cursor-default">
+      <Star size={16} class="inline-block mr-1 -mt-0.5 text-yellow fill-yellow" />{repoStars}
+    </button>
+    <button class="hover:cursor-default">
+      <GitFork size={16} class="inline-block mr-1 -mt-0.5 text-magenta" />{repoForks}
+    </button>
   </div>
 </div>

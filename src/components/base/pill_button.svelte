@@ -1,10 +1,10 @@
 <script>
   export let href;
-  export let extendedClass;
+  export let extendedClass = '';
 </script>
 
 <a {href}>
-  <button class="text-sm px-4 py-2.5 rounded-full font-semibold duration-100 bg-lightGray text-bg-500 shadow-sm hover:bg-white {extendedClass}" {...$$restProps}>
+  <button class="text-sm px-4 py-2.5 rounded-full font-medium duration-100 bg-gray hover:bg-white text-bg-500 shadow-sm {extendedClass}" {...$$restProps}>
     <slot />
   </button>
 </a>

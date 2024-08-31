@@ -61,9 +61,12 @@
     border: 4px solid transparent;
     border-radius: theme('borderRadius.lg');
     background-clip: padding-box; /* `bg-clip-padding` doesn't work */
-    background-color: theme("colors.lightGray");
+    background-color: theme("colors.gray");
   }
   ::-webkit-scrollbar-thumb:hover {
+    @apply bg-white;
+  }
+  ::-webkit-scrollbar-thumb:active {
     @apply bg-blue;
   }
   ::-webkit-scrollbar-track {
@@ -72,7 +75,7 @@
 
   /* Clear ‘X’ from Internet Explorer and Chrome */
   input[type=search]::-ms-clear,
-    input[type=search]::-ms-reveal {
+  input[type=search]::-ms-reveal {
     @apply hidden h-0 w-0;
   }
   input[type="search"]::-webkit-search-decoration,

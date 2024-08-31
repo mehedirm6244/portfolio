@@ -1,8 +1,10 @@
 <script>
   import { onMount } from 'svelte';
+  import toast from 'svelte-french-toast'
 
   let contextMenu;
   let clickTarget;
+  let clipboard = navigator.clipboard;
   let showContextMenu = false;
   let onTextInput = false;
   let onLink = false;
@@ -12,7 +14,14 @@
   const commonItems = [
     {
       text: 'Copy selection',
-      action: () => navigator.clipboard.writeText(window.getSelection().toString())
+      action: () => {
+        if (clipboard) {
+          clipboard.writeText(window.getSelection().toString());
+          toast.success("Copied to clipboard");
+        } else {
+          toast.error("Failed to copy");
+        }
+      }
     },
     {
       text: 'Source repository',
@@ -24,15 +33,24 @@
     {
       text: 'Cut',
       action: () => {
-        navigator.clipboard.writeText(window.getSelection().toString());
-        window.getSelection().deleteFromDocument();
+        if (clipboard) {
+          clipboard.writeText(window.getSelection().toString());
+          window.getSelection().deleteFromDocument();
+          toast.success("Cut to clipboard");
+        } else {
+          toast.error("Failed to cut");
+        }
       }
     },
     {
       text: 'Paste',
       action: async () => {
-        const text = await navigator.clipboard.readText();
-        clickTarget.value += text;
+        if (clipboard) {
+          const text = await navigator.clipboard.readText();
+          clickTarget.value += text;
+        } else {
+          toast.error("Failed to paste");
+        }
       }
     }
   ]
@@ -44,7 +62,14 @@
     },
     {
       text: 'Copy link',
-      action: () => navigator.clipboard.writeText(clickTarget.href)
+      action: () => {
+        if (clipboard) {
+          clipboard.writeText(clickTarget.href)
+          toast.success("Copied to clipboard");
+        } else {
+          toast.error("Failed to copy");
+        }
+      }
     }
   ]
 
@@ -65,6 +90,13 @@
   }
 
   onMount(() => {
+    // Check if clipboard permission exists for enabling to paste
+    navigator.permissions.query({name:'clipboard-read'}).then((result) => {
+      if (result.state == 'denied' || result.state == 'prompt') {
+        toast.error("Reading from clipboard is denied. Pasting will not work.", { duration: 5000 });
+      }
+    });
+
     document.addEventListener("contextmenu", (e) => {
       e.preventDefault();
       clickTarget = e.target;
@@ -83,7 +115,7 @@
   });
 </script>
 
-<div bind:this={contextMenu} class="z-50 bg-bg-100 w-56 shadow-lg p-2 rounded-lg select-none fixed" class:hidden={!showContextMenu} style="top:{clickPosition.y}px; left:{clickPosition.x}px">
+<div bind:this={contextMenu} class="z-50 bg-bg-100 w-56 shadow-md p-2 rounded-lg select-none fixed" class:hidden={!showContextMenu} style="top:{clickPosition.y}px; left:{clickPosition.x}px">
   {#if onLink}
     {#each linkItems as linkItem}
       <button class="px-4 py-1 font-base block w-full text-left rounded hover:bg-white/10" on:click={linkItem.action}>

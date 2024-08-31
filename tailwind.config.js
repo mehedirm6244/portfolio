@@ -1,6 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{html,js,svelte}'],
+  content: [
+    './src/**/*.{html,js,svelte}'
+  ],
   theme: {
     screens: {
       sm: '400px',
@@ -18,8 +20,7 @@ module.exports = {
         magenta: '#c58af9',
         orange: '#ff9e64',
         cyan: '#7dcfff',
-        teal: '#41a6b5',
-        lightGray: '#a9b1d6',
+        gray: '#a9b1d6',
         white: '#c0caf5',
         bg: {
           100: '#252536',
