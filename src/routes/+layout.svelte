@@ -1,7 +1,7 @@
 <script>
   import "../app.css";
 
-  import toast, {Toaster} from 'svelte-french-toast';
+  import { Toaster } from 'svelte-french-toast';
 
   import PreLoader from '../components/base/preloader.svelte';
   import NavBar from '../components/base/navbar.svelte';

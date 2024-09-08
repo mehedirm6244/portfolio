@@ -8,8 +8,10 @@
 
   import { Box } from "lucide-svelte";
 
-  const skills = ['Linux', 'C', 'C++', 'Bash', 'HTML5', 'CSS3', 'TailwindCSS', 'SCSS', 'Javascript', 'Svelte'];
-  const githubRepos = ['sysfex', 'Miserable_Xfce', 'jash', 'mehedirm6244.github.io'];
+  const skills = ['Linux', 'C', 'C++', 'BASH', 'HTML5', 'CSS3', 'TailwindCSS', 'SCSS', 'Javascript', 'Svelte'];
+  const githubRepos = [
+    'mehedirm6244/sysfex', 'mehedirm6244/Miserable_Xfce', 'mehedirm6244/jash', 'mehedirm6244/mehedirm6244.github.io'
+  ];
   const twContent = ['a student', 'an enthusiast', 'a programmer']; // Typewriter content
 
   let typewriter;
@@ -59,39 +61,35 @@
         <span class="animate-blink">_</span>
       </p>
       <div class="mt-4 space-x-2" use:reveal={{ transition: "slide", x:-10, delay: 100 }}>
-        <PillButton href="#project"><Box size={16} class="inline-block mr-1 -mt-0.5" />Projects</PillButton>
+        <PillButton href="#project"><Box size={16} class="inline-block mr-1 -mt-0.5"/>Projects</PillButton>
       </div>
     </div>
   </header>
 
-
-  <!-- My info -->  
+  <!-- About Me -->  
   <section class="px-[5%] py-12 md:px-[10%] md:py-20">
-    <div class="bg-bg-500 p-8 sm:p-12 md:p-16 rounded-2xl md:mx-[7%]" use:reveal={{ transition: "slide", x: -80, easing: 'easeOutBack' }}>
-      <h1 class="text-2xl mb-3 font-medium">About Me</h1>
+    <div class="bg-bg-500 p-12 md:p-16 rounded-2xl md:mx-[7%]" use:reveal={{ transition: "slide", x: -80, easing: 'easeOutBack' }}>
+      <h1 class="text-2xl mb-1 font-medium">About Me</h1>
       <p>
-        I'm interested in frontend, competitive programming and computer science. I've been a passionate linux user since 2020 (<span class="text-blue">Arch</span> btw). I often code when relaxed, just to destroy my sanity. I'm looking forward to learning more geeky stuff and contributing to FOSS.
-      </p>
-      <p>
-        Throughout my academic life, I've gained some ECAs through participating in different olympiads related to math, physics and programming. I've also contributed to several non-profit science based organizations through actively volunteering. I'm now preparing for entrance exams.
+        I'm a high schooler and linux enthusiast (<span class="text-blue font-medium">Arch</span> btw) from Dhaka, Bangladesh. I'm looking forward to learning more geeky stuff and contributing to FOSS. Throughout my academic life, I've gained some ECAs through participating in different olympiads related to math, physics and programming. I've also contributed to several non-profit science based organizations through actively volunteering. Currently I'm preparing for entrance exams.
       </p>
     </div>
   </section>
 
   <!-- My Projects -->  
   <section class="px-[5%] py-12 md:px-[10%] md:py-20 bg-bg-500" id="project">
-    <h1 class="text-2xl text-center font-medium">My projects</h1>
-    <p class="text-center">About which I tell <i>her mother</i>.</p>
+    <h1 class="text-2xl text-center font-medium">My works</h1>
+    <p class="text-center">About which I tell <i>her mother</i></p>
     <div class="mt-8 space-y-3 sm:space-y-0 sm:flex flex-wrap align-middle items-center justify-center gap-5">
       {#each githubRepos as githubRepo, idx}
-        <RepoCard repo="mehedirm6244/{githubRepo}" useReveal={{ transition: "fly", y:20, duration: 500, delay: 75*idx }} />
+        <RepoCard repo={githubRepo} useReveal={{ transition: "fly", y:20, duration: 500, delay: 75*idx }} />
       {/each}
     </div>
   </section>
 
   <!-- Stuffs I'm used to -->  
   <section class="px-[5%] py-12 md:px-[10%] md:py-20">
-    <div class="bg-bg-500 p-8 sm:p-12 md:p-16 rounded-2xl md:mx-[7%]" use:reveal={{ transition: "slide", x: -80, easing: 'easeOutBack' }}>
+    <div class="bg-bg-500 p-12 md:p-16 rounded-2xl md:mx-[7%]" use:reveal={{ transition: "slide", x: -80, easing: 'easeOutBack' }}>
       <p class="text-2xl font-medium">A set of things I'm used to</p>
       <p class="mb-6">Including operating systems, languages and frameworks</p>
       <div class="flex flex-row flex-wrap gap-2">
