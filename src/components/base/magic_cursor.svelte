@@ -8,7 +8,7 @@
     magicCursor.animate({
       left: `${event.clientX}px`,
       top: `${event.clientY}px`
-    }, { duration: 750, fill: "forwards" });
+    }, { duration: 500, fill: "forwards" });
   }
 
   function simulateClick() {

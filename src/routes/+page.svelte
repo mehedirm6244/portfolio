@@ -79,7 +79,7 @@
   <!-- My Projects -->  
   <section class="px-[5%] py-12 md:px-[10%] md:py-20 bg-bg-500" id="project">
     <h1 class="text-2xl text-center font-medium">My works</h1>
-    <p class="text-center">About which I tell <i>her mother</i></p>
+    <p class="text-center">Because actions speak louder than words</p>
     <div class="mt-8 space-y-3 sm:space-y-0 sm:flex flex-wrap align-middle items-center justify-center gap-5">
       {#each githubRepos as githubRepo, idx}
         <RepoCard repo={githubRepo} useReveal={{ transition: "fly", y:20, duration: 500, delay: 75*idx }} />
@@ -117,9 +117,9 @@
         <textarea name="content" placeholder="Content" rows="4" class="block w-full resize-none bg-bg-500 px-6 py-4 rounded-xl my-4 placeholder:text-gray"></textarea>
 
         <div class="flex justify-center mt-8">
-          <input type="submit" value="Send as Email" class="text-sm px-4 py-2.5 rounded-full font-medium duration-100 bg-gray text-bg-500 hover:bg-white hover:cursor-pointer">
-            
+          <input type="submit" value="Send as Email" class="text-sm px-4 py-2.5 rounded-full font-medium duration-100 bg-gray text-bg-500 hover:bg-white hover:cursor-pointer active:scale-90">
         </div>
+
       </form>
     </div>
   </section>
